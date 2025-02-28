@@ -1,0 +1,16 @@
+openapi: 3.0.0
+info:
+  title: Test for backward compatibility
+  description: Specmatic can see changes here (even if root.yaml still not changed)
+  version: '1.0'
+paths: { }
+
+components:
+  schemas:
+    DataObjectA:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: string

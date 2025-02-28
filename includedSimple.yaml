@@ -1,0 +1,14 @@
+info:
+  title: Test for backward compatibility
+  description: Specmatic DOES NOT can see any changes here (if root.yaml still not changed)
+  version: '1.0'
+
+components:
+  schemas:
+    DataObjectB:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: string

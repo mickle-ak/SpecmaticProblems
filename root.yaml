@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: Test for backward compatibility
+  version: '1.0'
+paths:
+
+  /a:
+    get:
+      operationId: getAll
+      summary: Get all
+      responses:
+        '200':
+          description: A list of all
+          content:
+            application/json:
+              schema:
+                $ref: 'includedAsOpenApiDocument.yaml#/components/schemas/DataObjectA'
+
+
+  /b:
+    get:
+      operationId: getAll
+      summary: Get all
+      responses:
+        '200':
+          description: A list of all
+          content:
+            application/json:
+              schema:
+                $ref: 'includedSimple.yaml#/components/schemas/DataObjectB'
