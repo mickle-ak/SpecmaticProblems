@@ -1,16 +1,18 @@
 openapi: 3.0.0
 info:
-  title: Test for backward compatibility
-  version: '1.0'
+  title: Specmatic tests
+  version: '1.1'
 paths:
 
   /a:
     get:
-      operationId: getAll
-      summary: Get all
+      operationId: getA
+      summary: Get A object
+      parameters:
+        - $ref: '#/components/parameters/nonExplodeParam'
       responses:
         '200':
-          description: A list of all
+          description: A
           content:
             application/json:
               schema:
@@ -19,12 +21,42 @@ paths:
 
   /b:
     get:
-      operationId: getAll
-      summary: Get all
+      operationId: getB
+      summary: Get B object
+      parameters:
+        - $ref: '#/components/parameters/explodeParam'
       responses:
         '200':
-          description: A list of all
+          description: A list of all B
           content:
             application/json:
               schema:
                 $ref: 'includedSimple.yaml#/components/schemas/DataObjectB'
+
+components:
+  parameters:
+    nonExplodeParam:
+      name: nonExplodeParam
+      in: query
+      required: false
+      style: form
+      explode: false
+      schema:
+        type: array
+        description: Filter tasks by status (csv list)
+        items:
+          type: string
+      example: [value1,value2]
+
+    explodeParam:
+      name: explodeParam
+      in: query
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: array
+        description: Filter tasks by status (csv list)
+        items:
+          type: string
+      example: [value1,value2]

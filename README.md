@@ -1,11 +1,17 @@
-Examples to show that Specmatic does not detect changes in included files that do not have 'openapi' element.
+Examples to show some problems in Specmatic
+
+---
+### Specmatic Contract Test ignored "explode: false" for parameters with "array" type
+
+
+
 
 ---
 ## Specmatic backward-compatibility check does not detect changes in included files
 
 Specmatic's "backward-compatibility-check" does not detect changes in included files if the "root" file is not modified.
 
-==> **CORRECT in Specmatic 2.7.6**
+==> **CORRECTED in Specmatic 2.7.6**
 
 ### changes in included file that does not have 'openapi' element
 
@@ -54,11 +60,11 @@ Checking backward compatibility of the following specs:
 ```
 
 ---
-## if included file is renamed or moved to another directory, Specmatic backward-compatibility-check interest this non-breaking changes as breaking changes
+## if included file is renamed or moved to another directory, Specmatic backward-compatibility-check interprets this non-breaking changes as breaking changes
 
 Specmatic's "backward-compatibility-check" does not interpret some non-breaking changes as non-breaking – if included file is renamed or moved to another directory:
 
-==> **CORRECT in Specmatic 2.7.6**
+==> **CORRECTED in Specmatic 2.7.6**
 
 rename the included file “includedAsOpenApiDocument.yaml” into (for example) “includedOpenApiDocument.yaml“ and start backward-compatibility-check: ``java -jar specmatic.jar backward-compatibility-check``
 
